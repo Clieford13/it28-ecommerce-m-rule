@@ -61,7 +61,14 @@
         <label for="cvv">CVV</label>
         <input type="text" id="cvv" name="cvv" placeholder="Enter CVV">
 
-        <td><a class="submit" href="logistics.html">pay now </a></td>
+        <button class="submit" onclick="submitPayment()">Submit Payment</button>
     </div>
+
+    <script>
+        function submitPayment() {
+            // Logic to process payment (you can add your own here)
+            alert("Payment Submitted Successfully!");
+        }
+    </script>
 </body>
 </html>
