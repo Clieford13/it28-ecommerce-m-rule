@@ -1,13 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Report</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .report-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .report-btn:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            font-style: italic;
+            color: #999;
+        }
+        .text-message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .message-input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-<h1>Report</h1>
-<p>This is your report page.</p>
-<p><a href="index.html">Go back to Index</a></p>
+    <div class="container">
+        <h1>Report</h1>
+        <p>This is your report page.</p>
+        <p><a href="index.html">Go back to Home</a></p>
+        <button class="report-btn" onclick="generateReport()">Generate Report</button>
+        <p class="message" id="reportMessage"></p>
+        <div class="text-message" id="textMessage"></div>
+        <input type="text" class="message-input" id="buyerMessage" placeholder="Enter your message...">
+    </div>
+
+    <script>
+        function generateReport() {
+            var messageElement = document.getElementById("reportMessage");
+            messageElement.textContent = "Generating report... Please wait.";
+
+            var textMessageElement = document.getElementById("textMessage");
+            textMessageElement.textContent = ""; // Clear previous message
+
+            // Get buyer's message
+            var buyerMessage = document.getElementById("buyerMessage").value;
+
+            // Simulate report generation delay
+            setTimeout(function() {
+                // Update message when report is generated
+                messageElement.textContent = "Report generated successfully!";
+                textMessageElement.textContent = "This is a sample text message included in the report.";
+                
+                // If buyer's message is provided, display it
+                if (buyerMessage.trim() !== "") {
+                    textMessageElement.textContent += "\n\nBuyer's Message: " + buyerMessage;
+                }
+            }, 2000); // Change 2000 to the time it takes to generate the report in milliseconds
+        }
+    </script>
 </body>
 </html>
